@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Login</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style type="text/css">
+        .container {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            margin: -160px 0 0 -160px;
+            box-shadow: 0 0 100px rgba(0 0 0 .8);
+        }
+        #msg {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <img src="/show" />
+    <p id="msg"></p>
+</div>
+<script type="application/javascript">
+    setTimeout(function () {
+        t = setInterval(function () {
+            msg = document.getElementById('msg');
+            $.get('/check', function (res) {
+                if (res.key) clearInterval(t);
+                msg.innerText = res.value;
+            });
+        }, 3000);
+    }, 100);
+</script>
+</body>
+</html>
