@@ -5,7 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.server.HttpServerRequest;
 import cn.hutool.http.server.HttpServerResponse;
 import cn.hutool.http.server.action.Action;
-import li.haomin.jd.Login;
+import li.haomin.jd.util.Login;
 
 import java.io.IOException;
 import java.net.HttpCookie;

@@ -19,16 +19,23 @@
 </head>
 <body>
 <div class="container">
-    <img src="/show" />
+    <img id="show" />
     <p id="msg"></p>
 </div>
 <script type="application/javascript">
+    document.getElementById('show').src = location.href + 'show';
     setTimeout(function () {
         t = setInterval(function () {
             msg = document.getElementById('msg');
-            $.get('/check', function (res) {
-                if (res.key) clearInterval(t);
-                msg.innerText = res.value;
+            $.get(location.href + 'check', function (res) {
+                if (res.key) {
+                    clearInterval(t);
+                    $.get(location.href + 'save?token=' + res.value, function (txt) {
+                        msg.innerText = txt;
+                    });
+                } else {
+                    msg.innerText = res.value;
+                }
             });
         }, 3000);
     }, 100);

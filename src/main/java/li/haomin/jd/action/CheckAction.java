@@ -6,12 +6,9 @@ import cn.hutool.http.server.HttpServerRequest;
 import cn.hutool.http.server.HttpServerResponse;
 import cn.hutool.http.server.action.Action;
 import cn.hutool.json.JSONUtil;
-import li.haomin.jd.Login;
+import li.haomin.jd.util.Login;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpCookie;
-import java.util.List;
 
 public class CheckAction implements Action {
     public static final String PATH = "/check";

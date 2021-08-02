@@ -1,4 +1,4 @@
-package li.haomin.jd;
+package li.haomin.jd.util;
 
 import cn.hutool.core.lang.Pair;
 import cn.hutool.http.HttpRequest;
@@ -79,7 +79,7 @@ public class Login {
             return null;
         }
         HttpCookie pin = response.getCookie("pin");
-        return Pair.of(pin.getValue(), pin.getMaxAge());
+        return Pair.of(pin.getValue(), System.currentTimeMillis() + pin.getMaxAge() * 1000);
     }
 
     public static String cookie(String ticket, String pin) {
